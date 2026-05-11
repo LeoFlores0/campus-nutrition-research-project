@@ -1,4 +1,16 @@
+# Python bytecode
 __pycache__/
-.venv/
-*.pyc
-.vscode/
+*.py[cod]
+
+# Environments
+env/
+venv/
+.env
+
+# Scraper Debug Files
+*.png
+*.txt
+Stacktrace.txt
+
+# Data Files
+*.csv
