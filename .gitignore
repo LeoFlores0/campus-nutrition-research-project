@@ -14,3 +14,5 @@ Stacktrace.txt
 
 # Data Files
 *.csv
+
+.vscode/
