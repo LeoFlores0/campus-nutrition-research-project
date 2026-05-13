@@ -21,8 +21,8 @@ Ensure you have Python installed and the necessary dependencies:
 pip install pandas beautifulsoup4 selenium webdriver-manager
 
 ### Usage
-1. Run the scraper to generate the daily dataset:
-   python scraper.py
+1. Run the scraper or mock data to generate the daily dataset:
+   python scraper.py or python generate_mock_data.py
 2. The script will output a file named campus_menu.csv containing the scraped data.
 3. Open analysis.ipynb to view the nutritional gap trends and data visualizations.
 

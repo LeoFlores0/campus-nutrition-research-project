@@ -1,5 +1,7 @@
-requests
-beautifulsoup4
 pandas
+beautifulsoup4
+selenium
+webdriver-manager
 matplotlib
 seaborn
+ipykernel
