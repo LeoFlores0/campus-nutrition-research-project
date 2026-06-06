@@ -10,15 +10,14 @@ An automated tool to identify nutritional gaps in daily campus dining menus usin
 
 ## Technical Stack
 - **Language**: Python
-- **Libraries**: Pandas, BeautifulSoup4, Selenium
+- **Libraries**: Pandas, BeautifulSoup4, Selenium, Matplotlib, Seaborn
 - **Driver Management**: WebDriver Manager for automated Chrome binary configuration
-- **Environment**: Conda virtual environment within VS Code
+- **Environment**: Jupyter Notebook (IPython) for data visualization
 
 ## Getting Started
 
 ### Prerequisites
-Ensure you have Python installed and the necessary dependencies:
-pip install pandas beautifulsoup4 selenium webdriver-manager
+Ensure you have Python installed. You can install all necessary dependencies using the requirements file.
 
 ### Usage
 1. Run the scraper or mock data to generate the daily dataset:
