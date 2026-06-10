@@ -54,7 +54,7 @@ def scrape_menu_with_selenium():
         
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         menu_data = []
-        meals = soup.find_all('li', class_='row-span-2') [cite: 1]
+        meals = soup.find_all('li', class_='row-span-2')
 
         for meal in meals:
             name = meal.find('h4').get_text(strip=True) if meal.find('h4') else "N/A"
