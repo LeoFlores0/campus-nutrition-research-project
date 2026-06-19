@@ -1,16 +1,49 @@
 import pandas as pd
+import numpy as np
 
-test_data = [
-    {"item": "Garden Salad", "description": "Fresh greens with balsamic dressing", "calories": "150", "labels": "Vegan, Gluten-Free"},
-    {"item": "Grilled Chicken Breast", "description": "Seasoned chicken with herbs", "calories": "250", "labels": "Gluten-Free"},
-    {"item": "Steamed Broccoli", "description": "Lightly steamed fresh broccoli", "calories": "50", "labels": "Vegan, Vegetarian"},
-    {"item": "Beef Stir-Fry", "description": "Beef with mixed peppers", "calories": "400", "labels": "None"},
-    {"item": "Tofu Scramble", "description": "High protein tofu with spinach", "calories": "200", "labels": "Vegan"},
-    {"item": "French Fries", "description": "Deep fried potato strips", "calories": "350", "labels": "Vegetarian"},
-    {"item": "Fresh Apple", "description": "Crispy gala apple", "calories": "95", "labels": "Vegan"},
-    {"item": "Roasted Turkey", "description": "Slices of roasted turkey", "calories": "180", "labels": "None"}
+np.random.seed(42)
+
+menu_pool = [
+    {"item_name": "Scrambled Eggs", "dietary_label": "Vegetarian"},
+    {"item_name": "Garden Salad", "dietary_label": "Vegan, Gluten-Free"},
+    {"item_name": "Grilled Chicken Breast", "dietary_label": "Gluten-Free"},
+    {"item_name": "Steamed Broccoli", "dietary_label": "Vegan, Vegetarian, Gluten-Free"},
+    {"item_name": "French Fries", "dietary_label": "Vegetarian, Gluten-Free"},
+    {"item_name": "Mac and Cheese", "dietary_label": "Vegetarian"},
+    {"item_name": "Beef Stir-Fry", "dietary_label": "Omnivore"},
+    {"item_name": "Tofu Scramble", "dietary_label": "Vegan, Vegetarian"}
 ]
 
-test_df = pd.DataFrame(test_data)
-test_df.to_csv('campus_menu.csv', index=False)
-print("Test data 'campus_menu.csv' created.")
+n_records = 60
+selected_items = np.random.choice(menu_pool, n_records)
+
+data = []
+for entry in selected_items:
+    calories = np.random.randint(80, 650)
+    
+    if "Vegan" in entry["dietary_label"] or "Vegetarian" in entry["dietary_label"]:
+        protein = np.random.randint(3, 15)       
+        sat_fat = np.random.randint(0, 5)
+        fiber = np.random.randint(2, 8)        
+    else:
+        protein = np.random.randint(15, 38)      
+        sat_fat = np.random.randint(3, 14)       
+        fiber = np.random.randint(0, 3)
+
+    row = {
+        "item_name": entry["item_name"],
+        "dietary_label": entry["dietary_label"],
+        "calories": calories,
+        "protein_g": protein,
+        "carbs_g": np.random.randint(5, 55),
+        "fat_g": np.random.randint(1, 25),
+        "saturated_fat_g": sat_fat,
+        "sodium_mg": np.random.randint(150, 1100), 
+        "fiber_g": fiber,
+        "added_sugars_g": np.random.randint(0, 14)
+    }
+    data.append(row)
+
+df = pd.DataFrame(data)
+df.to_csv('campus_menu.csv', index=False)
+print("Success")
