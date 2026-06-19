@@ -10,7 +10,7 @@ menu_pool = [
     {"item_name": "Steamed Broccoli", "dietary_label": "Vegan, Vegetarian, Gluten-Free"},
     {"item_name": "French Fries", "dietary_label": "Vegetarian, Gluten-Free"},
     {"item_name": "Mac and Cheese", "dietary_label": "Vegetarian"},
-    {"item_name": "Beef Stir-Fry", "dietary_label": "Omnivore"},
+    {"item_name": "Beef Stir-Fry", "dietary_label": "N/A"},
     {"item_name": "Tofu Scramble", "dietary_label": "Vegan, Vegetarian"}
 ]
 
