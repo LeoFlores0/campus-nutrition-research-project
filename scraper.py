@@ -437,9 +437,9 @@ def scrape_campus_menu(target_months=3):
 if __name__ == "__main__":
     df = scrape_campus_menu(target_months=3)
     if not df.empty:
-        print(f"\n[Success] Scraped {len(df)} total items across all target meal options and months.")
+        print(f"\nScraped {len(df)} total items across all target meal options and months.")
         print(df.head())
         df.to_csv("campus_menu_nutrition.csv", index=False)
-        print("[+] Output saved to 'campus_menu_nutrition.csv'")
+        print("Output saved to 'campus_menu_nutrition.csv'")
     else:
-        print("[-] No data extracted.")
+        print("No data extracted.")
