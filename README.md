@@ -1,38 +1,40 @@
-# Campus Nutrition Research Project
+# Campus Menu Nutrition Scraper & Analyzer
 
-An automated tool to identify nutritional gaps in daily campus dining menus using Python. This project utilizes web scraping and data analysis to track the availability of fresh produce and protein options within university dining facilities.
+## Project Overview
+This project is an automated data pipeline that extracts, processes, and analyzes nutritional data from a campus dining portal. Built with Python, it utilizes headless browser automation to navigate dynamically rendered React components, parses complex HTML modals to extract specific macronutrients, and compiles the data for deep dietary analysis. 
 
-## Features
-- **Automated Menu Extraction**: Uses Selenium to navigate the Pride Cafe menu, bypassing modern web obstacles like email reward popups and cookie consent banners.
-- **Robust Data Parsing**: Leverages BeautifulSoup to extract structured nutritional data, including item names, descriptions, calorie counts, and dietary labels (e.g., Vegan, Vegetarian, Gluten-Free).
-- **Dynamic Content Handling**: Implements incremental scrolling and explicit waits to ensure lazy-loaded menu items are fully rendered before extraction.
-- **Error Diagnostics**: Automatically generates headless browser screenshots (error_debug.png) to troubleshoot layout changes or timeout exceptions.
+The resulting dataset is evaluated against federal Acceptable Macronutrient Distribution Ranges (AMDR) and Daily Value benchmarks to assess the overall nutritional balance of campus dining options.
 
 ## Technical Stack
-- **Language**: Python
-- **Libraries**: Pandas, BeautifulSoup4, Selenium, Matplotlib, Seaborn
-- **Driver Management**: WebDriver Manager for automated Chrome binary configuration
-- **Environment**: Jupyter Notebook (IPython) for data visualization
+* **Web Automation:** Selenium, Webdriver Manager
+* **HTML Parsing:** BeautifulSoup4 (bs4), Regular Expressions (re)
+* **Data Manipulation:** Pandas, NumPy
+* **Data Visualization & Stats:** Matplotlib, Seaborn, SciPy
 
-## Getting Started
+## Key Features
+* **Dynamic Web Scraping:** Engineered a headless Selenium WebDriver with stability flags to bypass cookie banners, interact with sticky headers, and navigate a monthly calendar view.
+* **Robust Data Parsing:** Built an extraction function using BeautifulSoup to parse nested key-value HTML structures inside dynamically loaded modals, capturing exact values for calories, proteins, carbohydrates, fats, sodium, fiber, and added sugars.
+* **Data Cleaning & Coercion:** Implemented Regex to clean raw fractional descriptors (e.g., "less than 1 g") and safely cast scraped strings to numeric floats.
+* **Nutritional Analytics Pipeline:** Analyzed a dataset of 370 menu items to calculate macronutrient distribution.
+* **Federal Guideline Auditing:** Automated the evaluation of menu items against 1/3 Daily Value safety thresholds for nutrients like Sodium and Saturated Fat, generating an aggregate compliance summary.
 
-### Prerequisites
-Ensure you have Python installed. You can install all necessary dependencies using the requirements file.
+## Impact & Insights
+By automating the collection of hundreds of data points across multiple months and meal times (Breakfast, Lunch, Dinner), this tool enables a data-driven approach to campus health.
 
-### Usage
-1. Run the scraper or mock data to generate the daily dataset:
-   python scraper.py or python generate_mock_data.py
-2. The script will output a file named campus_menu.csv containing the scraped data.
-3. Open analysis.ipynb to view the nutritional gap trends and data visualizations.
+*Key findings from the analysis environment:*
+* Automatically calculates total caloric contributions per macronutrient across the global menu pool.
+* Identifies statistical deviations, highlighting that dietary fiber and protein mass run at a deficit for the majority of items when compared to benchmark standards.
+* Pinpoints exact counts of individual menu items actively breaching federal ceiling limits for sodium and added sugars.
 
-## Ethical Standards
-This scraper is designed with respect for the host website's resources:
-- **Rate Limiting**: Includes strategic time.sleep() calls to prevent server strain.
-- **Headless Execution**: Runs in the background to minimize resource consumption.
-- **Manual Verification**: Compliance with robots.txt guidelines has been manually verified for this academic research project.
+## To Use
 
-## Current Research Goals
-The primary objective of this project is to analyze "Campus Nutritional Accessibility" by:
-- Scraping and analyzing daily menus for nutritional consistency.
-- Tracking the daily availability of fresh produce versus processed options.
-- Identifying protein gaps for students with specific dietary restrictions.
+### Install Dependencies
+Ensure you have Python 3.8+ installed, then run:
+```bash
+pip install -r requirements.txt
+``` 
+### Run
+Run scraper.py followed by analysis.ipynb.
+
+Note: generate_mock_data.py followed by analysis.ipynb will not work.
+Mock data was created for hypothetical testing and remains for eductional purposes.

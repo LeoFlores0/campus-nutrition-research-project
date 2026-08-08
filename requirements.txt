@@ -1,7 +1,13 @@
-pandas
-beautifulsoup4
+# Web Automation & Scraping
 selenium
 webdriver-manager
+beautifulsoup4
+
+# Data Manipulation & Analysis
+pandas
+numpy
+scipy
+
+# Data Visualization
 matplotlib
 seaborn
-ipykernel
