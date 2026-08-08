@@ -426,12 +426,12 @@ def scrape_campus_menu(target_months=3):
         return df
 
     except Exception as e:
-        print(f"[-] Execution error: {e}")
+        print(f"Execution error: {e}")
         driver.save_screenshot("error_debug.png")
         return pd.DataFrame(menu_data)
 
     finally:
-        print("\n[+] Closing browser session...")
+        print("\nClosing browser session...")
         driver.quit()
 
 if __name__ == "__main__":
